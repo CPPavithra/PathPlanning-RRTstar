@@ -56,5 +56,5 @@ This project involves building an autonomous rover capable of navigating through
 ##Future Improvements
 
 ##Sample Output
-![Path sample](review/pathfar.png)
-![Path sample](review/coordinates.png)
+![Path Sample](FOR%20REVIEW/pathfar.jpg)
+![Coordinates](FOR%20REVIEW/coordinates.png)
