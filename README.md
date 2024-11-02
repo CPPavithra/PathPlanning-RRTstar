@@ -55,6 +55,23 @@ This project involves building an autonomous rover capable of navigating through
 
 ##Future Improvements
 
+- Test the PID that has been included from motor control
+- Make the obstacle detection using grid map better; right now I have used the logic of height threshhold (z axis) to help the rover navigate through and avoid the obstacles in sight.
+The theshhold is set to 0.1, change it accordingly
+- Remote Piloting
+
 ##Sample Output
-![Path Sample](FOR%20REVIEW/pathfar.jpg)
-![Coordinates](FOR%20REVIEW/coordinates.png)
+- Coordinates printed on the terminal
+![coordinates](https://github.com/user-attachments/assets/068e70ad-ed12-4ec1-a7f7-7391a69f1305)
+
+- Path printed visually
+![pathfar](https://github.com/user-attachments/assets/494481e8-48d1-4c8d-83e9-78bb67ae8bb1)
+
+- Car testing video
+![cartest](https://github.com/user-attachments/assets/5b36a402-0612-4014-998f-99aa3a2f788d)
+
+- Full Project flowchart
+![Full project plan](https://github.com/user-attachments/assets/02cc790d-309c-4dba-b521-18b0e1fa4c39)
+
+
+
