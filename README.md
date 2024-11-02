@@ -52,7 +52,8 @@ This project involves building an autonomous rover capable of navigating through
 - Motor Car-> Test code for the motor car using L298N
 - rrtstar1-> TEST code with arduino and serial connection (NOT THE FINAL CODE)
 - rrtwithimu-> Test code for imu calibiration and kf (NOT THE FINAL CODE)
-- printing output-> Code for visualisation 
+- printing output-> Code for visualisation
+- sensor codes-> Sensor codes for imu-135 
 - FINAL CODE-> The code used for testing with the motor car+printing out the coordinates to test if it is being sent through serial connection or not.
 - NOTE- the valid.py code is just a sample code to check which is the valid empty coordinates in the SLAM data set so that I can put the inital nodes and the goal nodes.
 
@@ -62,6 +63,7 @@ This project involves building an autonomous rover capable of navigating through
 - Make the obstacle detection using grid map better; right now I have used the logic of height threshhold (z axis) to help the rover navigate through and avoid the obstacles in sight.
 The theshhold is set to 0.1, change it accordingly
 - Remote Piloting
+- Increase the threshold to reduce the error margin
 
 ## Sample Output
 - Coordinates printed on the terminal
