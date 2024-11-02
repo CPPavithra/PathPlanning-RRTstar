@@ -1,11 +1,10 @@
-// Motor and Actuator Pins
-const int AIN1 = 9;
-const int AIN2 = 8;
-const int PWMA = 10;
-const int BIN1 = 7;
-const int BIN2 = 6;
-const int PWMB = 5;
+// Pin definitions for Cytron Motor Driver with 4 wheels and 2 motor drivers
+const int LEFT_MOTOR_DIR = 9;     // Direction pin for left motor driver
+const int LEFT_MOTOR_PWM = 10;    // PWM pin for left motor driver
+const int RIGHT_MOTOR_DIR = 7;    // Direction pin for right motor driver
+const int RIGHT_MOTOR_PWM = 5;    // PWM pin for right motor driver
 
+// Actuator pins
 const int ACTUATOR_IN1 = 4;
 const int ACTUATOR_IN2 = 3;
 const int PWMACT = 2;
@@ -21,12 +20,10 @@ bool isAutonomousMode = true; // Start in autonomous mode
 void setup() {
     Serial.begin(9600);
     
-    pinMode(AIN1, OUTPUT);
-    pinMode(AIN2, OUTPUT);
-    pinMode(PWMA, OUTPUT);
-    pinMode(BIN1, OUTPUT);
-    pinMode(BIN2, OUTPUT);
-    pinMode(PWMB, OUTPUT);
+    pinMode(LEFT_MOTOR_DIR, OUTPUT);
+    pinMode(LEFT_MOTOR_PWM, OUTPUT);
+    pinMode(RIGHT_MOTOR_DIR, OUTPUT);
+    pinMode(RIGHT_MOTOR_PWM, OUTPUT);
     
     pinMode(ACTUATOR_IN1, OUTPUT);
     pinMode(ACTUATOR_IN2, OUTPUT);
@@ -126,47 +123,38 @@ void move_rover_to_target(float targetX, float targetY) {
     }
 }
 
+// Motor Control Functions for Cytron Driver (2 motors for 4 wheels)
 void forward() {   
-    digitalWrite(AIN1, HIGH);
-    digitalWrite(AIN2, LOW);
-    analogWrite(PWMA, 200); 
-    digitalWrite(BIN1, HIGH);
-    digitalWrite(BIN2, LOW);
-    analogWrite(PWMB, 200);  
+    digitalWrite(LEFT_MOTOR_DIR, HIGH); // Set forward direction for left motor
+    analogWrite(LEFT_MOTOR_PWM, 200);   // Set speed
+    digitalWrite(RIGHT_MOTOR_DIR, HIGH); // Set forward direction for right motor
+    analogWrite(RIGHT_MOTOR_PWM, 200);
 }
 
 void backward() {    
-    digitalWrite(AIN1, LOW);
-    digitalWrite(AIN2, HIGH);
-    analogWrite(PWMA, 200);  
-    digitalWrite(BIN1, LOW);
-    digitalWrite(BIN2, HIGH);
-    analogWrite(PWMB, 200); 
+    digitalWrite(LEFT_MOTOR_DIR, LOW); // Set reverse direction for left motor
+    analogWrite(LEFT_MOTOR_PWM, 200);  
+    digitalWrite(RIGHT_MOTOR_DIR, LOW); // Set reverse direction for right motor
+    analogWrite(RIGHT_MOTOR_PWM, 200); 
 }
 
 void left() {
-    digitalWrite(AIN1, LOW);
-    digitalWrite(AIN2, HIGH);
-    analogWrite(PWMA, 200);  
-    digitalWrite(BIN1, HIGH);
-    digitalWrite(BIN2, LOW);
-    analogWrite(PWMB, 200);  
+    digitalWrite(LEFT_MOTOR_DIR, LOW); // Reverse left motor
+    analogWrite(LEFT_MOTOR_PWM, 200);  
+    digitalWrite(RIGHT_MOTOR_DIR, HIGH); // Forward right motor
+    analogWrite(RIGHT_MOTOR_PWM, 200);  
 }
 
 void right() {
-    digitalWrite(AIN1, HIGH);
-    digitalWrite(AIN2, LOW);
-    analogWrite(PWMA, 200); 
-    digitalWrite(BIN1, LOW);
-    digitalWrite(BIN2, HIGH);
-    analogWrite(PWMB, 200); 
+    digitalWrite(LEFT_MOTOR_DIR, HIGH); // Forward left motor
+    analogWrite(LEFT_MOTOR_PWM, 200); 
+    digitalWrite(RIGHT_MOTOR_DIR, LOW); // Reverse right motor
+    analogWrite(RIGHT_MOTOR_PWM, 200); 
 }
 
 void stop_motors() {
-    digitalWrite(AIN1, LOW);
-    digitalWrite(AIN2, LOW);
-    digitalWrite(BIN1, LOW);
-    digitalWrite(BIN2, LOW);
+    analogWrite(LEFT_MOTOR_PWM, 0);
+    analogWrite(RIGHT_MOTOR_PWM, 0);
 }
 
 bool reached_target(float currentX, float currentY) {
