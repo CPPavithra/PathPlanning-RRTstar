@@ -43,6 +43,9 @@ This project involves building an autonomous rover capable of navigating through
 - The dataset was taken from- https://ori-drs.github.io/newer-college-dataset/
 - The specific database used is- https://drive.google.com/drive/folders/1y3IWSYhHWnpUsleXE0q23lnj0WCVo9ig ; where I have taken 2020 dataset-folder3-file12
 
+- The occupancy grid is as follow
+![occupancygrid](https://github.com/user-attachments/assets/3c6deec0-e40e-4def-b423-483b3f4ddcb0)
+
 ## Repo Guidance
 
 - Main files-> the main files for real time testing
@@ -53,14 +56,14 @@ This project involves building an autonomous rover capable of navigating through
 - FINAL CODE-> The code used for testing with the motor car+printing out the coordinates to test if it is being sent through serial connection or not.
 - NOTE- the valid.py code is just a sample code to check which is the valid empty coordinates in the SLAM data set so that I can put the inital nodes and the goal nodes.
 
-##Future Improvements
+## Future Improvements
 
 - Test the PID that has been included from motor control
 - Make the obstacle detection using grid map better; right now I have used the logic of height threshhold (z axis) to help the rover navigate through and avoid the obstacles in sight.
 The theshhold is set to 0.1, change it accordingly
 - Remote Piloting
 
-##Sample Output
+## Sample Output
 - Coordinates printed on the terminal
 ![coordinates](https://github.com/user-attachments/assets/068e70ad-ed12-4ec1-a7f7-7391a69f1305)
 
