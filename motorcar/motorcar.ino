@@ -68,10 +68,22 @@ void move_rover_to_target(float targetX, float targetY) {
         float angle = atan2(deltaY, deltaX);
         float distance = sqrt(deltaX * deltaX + deltaY * deltaY);
 
-        // Move towards the target
+        // Determine direction and move accordingly
         if (distance > threshold) {
-            // Move forward in the direction of the target
-            forward();
+            if (abs(angle) < 0.1) { // Move forward
+                forward();
+                Serial.println("moving forward");
+            } else if (abs(angle - PI) < 0.1 || abs(angle + PI) < 0.1) { // Move backward
+                backward();
+                Serial.println("moving backward");
+            } else if (angle > 0) { // Target is to the left
+                left();
+                Serial.println("turning left");
+            } else { // Target is to the right
+                right();
+                Serial.println("turning right");
+            }
+
             delay(100); // Delay to allow movement; adjust based on speed
         } else {
             stop_motors();
@@ -80,9 +92,10 @@ void move_rover_to_target(float targetX, float targetY) {
         }
 
         // Update current position based on speed and time elapsed
-        update_position(deltaX,deltaY);
+        update_position(deltaX, deltaY);
     }
 }
+
 
 
 void update_position(float deltaX, float deltaY) {
