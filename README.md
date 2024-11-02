@@ -75,6 +75,9 @@ The theshhold is set to 0.1, change it accordingly
 - Car testing video
 ![cartest](https://github.com/user-attachments/assets/5b36a402-0612-4014-998f-99aa3a2f788d)
 
+- Sample plot for sensors with arbitary values
+![sampleplot](https://github.com/user-attachments/assets/11dbc4b7-5556-47be-a549-e48d09c32d4a)
+
 - Full Project flowchart
 ![Full project plan](https://github.com/user-attachments/assets/02cc790d-309c-4dba-b521-18b0e1fa4c39)
 
